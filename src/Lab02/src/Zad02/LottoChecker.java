@@ -22,6 +22,7 @@ public class LottoChecker {
 
         int iterations = 0;
         int hits = 0;
+        long start = System.currentTimeMillis();
         while(hits != 6) {
             iterations++;
             hits = 0;
@@ -33,8 +34,10 @@ public class LottoChecker {
             }
         }
 
-
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
         System.out.println("Hits: " + hits);
         System.out.println("Iterations: " + iterations);
+        System.out.println("Time Elapsed: " + timeElapsed + "ms");
     }
 }
