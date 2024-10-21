@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class CodingBat {
     public static void main(String[] args) {
-        int[] a = {7,7};
-        System.out.println(has77(a));
+        int[] a = {1,3,1,4};
+        System.out.println(Arrays.toString(fix34(a)));
 
     }
 
@@ -72,11 +75,49 @@ public class CodingBat {
     }
 
     private static boolean linearIn(int[] outer, int[] inner) {
-        int innerNum = inner.length-1;
-        for (int n : outer) {
-            
+        int innerIndex = inner.length-1;
+        int hits = 0;
+        for (int outerIndex=outer.length-1; outerIndex>=0; outerIndex-- ) {
+            if (innerIndex < 0) {
+                return hits == inner.length;
+            }
+            else if (outer[outerIndex] == inner[innerIndex]) {
+                innerIndex--;
+                hits++;
+
+            }
+            else if (outer[outerIndex] < inner[innerIndex]) {
+                innerIndex--;
+            }
+            else {
+                ;
+            }
+
         }
 
-        return false;
+        return hits == inner.length;
     }
+
+    private static int[] fix34(int[] nums) {
+        ArrayList<Integer> moveFrom = new ArrayList<>();
+        ArrayList<Integer> moveTo = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 3 && nums[i+1] != 4) {
+                    moveTo.add(i+1);
+            }
+            else if (nums[i] == 4 && nums[i-1] != 3) {
+                moveFrom.add(i);
+            }
+        }
+        for (int i = 0; i < moveFrom.size(); i++) {
+            int prevNum = nums[moveTo.get(i)];
+            int newNum = nums[moveFrom.get(i)];
+            nums[moveFrom.get(i)] = prevNum;
+            nums[moveTo.get(i)] = newNum;
+        }
+
+
+        return nums;
+    }
+
 }
