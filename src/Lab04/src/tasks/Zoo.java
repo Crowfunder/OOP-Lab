@@ -44,12 +44,13 @@ public class Zoo {
             report.append(this.animals[i].getName()).append(this.animals[i].getIloscNog()).append("\n");
             numberOfLegs += this.animals[i].getIloscNog();
             if (this.animals[i] instanceof Bird) {
-                if (this.animals[i].hasFur) {
+                if (((Bird) this.animals[i]).hasFur) {
                     numberOfFur++;
                 }
             }
         }
         report.append(numberOfLegs).append(" nóg.").append("\n");
+        report.append(numberOfFur).append(" numer of fur").append("\n");
         return report.toString();
     }
 }
