@@ -11,19 +11,24 @@ public class Engine extends Component {
 
     public void engineStop() {
         running = false;
+        rpm = 0;
     }
 
     public void increaseRPM(int rpm_delta) {
-        rpm += rpm_delta;
-        if (rpm+rpm_delta > rpm_max) {
-            rpm = rpm_max;
+        if (running) {
+            rpm += rpm_delta;
+            if (rpm + rpm_delta > rpm_max) {
+                rpm = rpm_max;
+            }
         }
     }
 
     public void decreaseRPM(int rpm_delta) {
-        rpm -= rpm_delta;
-        if (rpm < 0) {
-            rpm = 0;
+        if (running) {
+            rpm -= rpm_delta;
+            if (rpm < 0) {
+                rpm = 0;
+            }
         }
     }
 

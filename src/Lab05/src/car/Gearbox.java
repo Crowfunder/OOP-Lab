@@ -16,7 +16,10 @@ public class Gearbox extends Component {
         return currentGear;
     }
 
-    public void setCurrentGear(int gear) {
+    public void setCurrentGear(int gear) throws GearboxException {
+        if (!clutch.isClutchPressed()) {
+            throw new GearboxException();
+        }
         if (currentGear != gear && maxGears > gear && gear > 0) {
             clutch.clutchPress();
             currentGear = gear;
@@ -29,6 +32,7 @@ public class Gearbox extends Component {
     }
 
     public double getCurrentGearRatio() {
+        if (currentGear == 0) { return 0; }
         return 0.12 + 0.04*currentGear;
     }
 

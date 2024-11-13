@@ -8,7 +8,7 @@ public class CodingBat {
 
     }
 
-    private static String delDel(String str) {
+    public static String delDel(String str) {
         if (str.length() < 4)
             return str;
         if (str.substring(1, 4).equals("del")) {
@@ -17,14 +17,14 @@ public class CodingBat {
         return str;
     }
 
-    private static boolean icyHot(int temp1, int temp2) {
+    public static boolean icyHot(int temp1, int temp2) {
         if ((temp1 < 0 || temp2 < 0) && (temp1 > 100 || temp2 > 100)) {
             return true;
         }
         return false;
     }
 
-    private static boolean has77(int[] nums) {
+    public static boolean has77(int[] nums) {
 
         if (nums.length < 2) {
             return false;
@@ -41,7 +41,7 @@ public class CodingBat {
         return false;
     }
 
-    private static int[] fizzArray3(int start, int end) {
+    public static int[] fizzArray3(int start, int end) {
         int[] result = new int[end-start];
         for (int i = start; i < end; i++) {
             result[i-start] = i;
@@ -60,7 +60,7 @@ public class CodingBat {
         return false;
     }
 
-    private static boolean xyBalance(String str) {
+    public static boolean xyBalance(String str) {
         boolean tripwire = true;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 'x') {
@@ -74,7 +74,7 @@ public class CodingBat {
         return tripwire;
     }
 
-    private static boolean linearIn(int[] outer, int[] inner) {
+    public static boolean linearIn(int[] outer, int[] inner) {
         int innerIndex = inner.length-1;
         int hits = 0;
         for (int outerIndex=outer.length-1; outerIndex>=0; outerIndex-- ) {
@@ -98,7 +98,7 @@ public class CodingBat {
         return hits == inner.length;
     }
 
-    private static int[] fix34(int[] nums) {
+    public static int[] fix34(int[] nums) {
         ArrayList<Integer> moveFrom = new ArrayList<>();
         ArrayList<Integer> moveTo = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
