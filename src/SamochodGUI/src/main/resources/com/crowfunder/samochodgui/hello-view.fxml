@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -26,178 +26,193 @@
       </MenuBar>
    </top>
    <left>
-      <VBox prefHeight="373.0" prefWidth="211.0" BorderPane.alignment="CENTER">
+      <Accordion BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane animated="false" text="Samochód">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="2.0">
+                           <children>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Label text="Model" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nr Rejestracyjny" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Waga" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Prędkość" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Włącz" />
+                                    <Button mnemonicParsing="false" text="Wyłącz" />
+                                    <Button mnemonicParsing="false" text="Button" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Skrzynia Biegów">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="2.0">
+                           <children>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nazwa" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Waga" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Cena" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Aktualny Bieg" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Bieg Wyżej" />
+                                    <Button mnemonicParsing="false" text="Bieg Niżej" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="358.0" text="Silnik">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="2.0">
+                           <children>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nazwa" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Cena" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Waga" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Obroty" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Dodaj Gazu" />
+                                    <Button mnemonicParsing="false" text="Ujmij Gazu" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="358.0" text="Sprzęgło">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="2.0">
+                           <children>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nazwa" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Cena" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Waga" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
+                                 <children>
+                                    <Label prefHeight="16.0" prefWidth="31.0" text="Stan" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <HBox prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Naciśnij" />
+                                    <Button mnemonicParsing="false" text="Zwolnij" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Accordion prefHeight="281.0" prefWidth="197.0">
-              <panes>
-                <TitledPane animated="false" prefHeight="206.0" prefWidth="212.0" text="Samochód">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0">
-                           <children>
-                              <VBox layoutX="-1.0" layoutY="-20.0">
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="59.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField prefWidth="114.0" />
-                                       </children></HBox>
-                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="136.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="144.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="186.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Button" />
-                                          <Button layoutX="30.0" layoutY="10.0" mnemonicParsing="false" text="Button" />
-                                       </children>
-                                    </HBox>
-                                 </children></VBox>
-                           </children></AnchorPane>
-                  </content>
-                </TitledPane>
-                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Skrzynia Biegów">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <VBox layoutX="-1.0" layoutY="-20.0" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="186.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Button" />
-                                          <Button layoutX="30.0" layoutY="10.0" mnemonicParsing="false" text="Button" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </TitledPane>
-                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Silnik">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <VBox layoutX="-1.0" layoutY="-20.0" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="186.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Button" />
-                                          <Button layoutX="30.0" layoutY="10.0" mnemonicParsing="false" text="Button" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </TitledPane>
-                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Sprzęgło">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <VBox layoutX="-1.0" layoutY="-20.0" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0">
-                                       <children>
-                                          <Label text="Label" />
-                                          <TextField />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="186.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Button" />
-                                          <Button layoutX="30.0" layoutY="10.0" mnemonicParsing="false" text="Button" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </TitledPane>
-              </panes>
-            </Accordion>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label text="Samochód" />
+                  <ChoiceBox prefWidth="150.0" />
+                  <Button mnemonicParsing="false" text="Dodaj Nowy" />
+                  <Button mnemonicParsing="false" text="Usuń" />
+               </children>
+            </HBox>
+            <Pane />
          </children>
       </VBox>
-   </left>
+   </center>
 </BorderPane>
