@@ -11,12 +11,14 @@ public class Car {
 
     public void startCar() {
         isRunning = true;
+        this.engine.engineRun();
     }
     public void stopCar() {
         isRunning = false;
+        this.engine.engineStop();
     }
-    public void goToPosition(Position position) {
-        this.position = position;
+    public void goToPosition(float x, float y) {
+        this.position.setPosition(x, y);
     }
 
     public float getWeight() {
