@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.crowfunder.samochodgui.SamochodController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -37,32 +37,31 @@
                               <HBox prefWidth="200.0">
                                  <children>
                                     <Label text="Model" />
-                                    <TextField />
+                                    <TextField fx:id="carModelText" onAction="#onCarModelText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Nr Rejestracyjny" />
-                                    <TextField />
+                                    <TextField fx:id="samochodNrRejText" onAction="#onsamochodNrRejText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Waga" />
-                                    <TextField />
+                                    <TextField fx:id="samochódWagaText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Prędkość" />
-                                    <TextField />
+                                    <TextField fx:id="samochodSpeedText" />
                                  </children>
                               </HBox>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Włącz" />
-                                    <Button mnemonicParsing="false" text="Wyłącz" />
-                                    <Button mnemonicParsing="false" text="Button" />
+                                    <Button fx:id="samochodEnableButton" mnemonicParsing="false" onAction="#onSamochodEnableClick" text="Włącz" />
+                                    <Button fx:id="samochodDisableButton" mnemonicParsing="false" onAction="#onSamochodDisableClick" text="Wyłącz" />
                                  </children>
                               </HBox>
                            </children>
@@ -80,31 +79,31 @@
                               <HBox prefWidth="200.0">
                                  <children>
                                     <Label text="Nazwa" />
-                                    <TextField />
+                                    <TextField fx:id="gearboxNameText" onAction="#onGearboxNameText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Waga" />
-                                    <TextField />
+                                    <TextField fx:id="gearboxWeightText" onAction="#onGearboxWeightText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Cena" />
-                                    <TextField />
+                                    <TextField fx:id="gearboxPriceText" onAction="#onGearboxText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Aktualny Bieg" />
-                                    <TextField />
+                                    <TextField fx:id="gearboxCurrentGearText" onAction="#onGearboxCurrentGearText" />
                                  </children>
                               </HBox>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Bieg Wyżej" />
-                                    <Button mnemonicParsing="false" text="Bieg Niżej" />
+                                    <Button fx:id="gearboxGearUpButton" mnemonicParsing="false" onAction="#onGearboxGearUpPress" text="Bieg Wyżej" />
+                                    <Button fx:id="gearboxGearDownButton" mnemonicParsing="false" onAction="#onGearboxGearDownPress" text="Bieg Niżej" />
                                  </children>
                               </HBox>
                            </children>
@@ -122,31 +121,31 @@
                               <HBox prefWidth="200.0">
                                  <children>
                                     <Label text="Nazwa" />
-                                    <TextField />
+                                    <TextField fx:id="engineNameText" onAction="#onEngineNameText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Cena" />
-                                    <TextField />
+                                    <TextField fx:id="enginePriceText" onAction="#onEnginePriceText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Waga" />
-                                    <TextField />
+                                    <TextField fx:id="engineWeightText" onAction="#onEngineWeightText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Obroty" />
-                                    <TextField />
+                                    <TextField fx:id="engineRPMText" onAction="#onEngineRPMText" />
                                  </children>
                               </HBox>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Dodaj Gazu" />
-                                    <Button mnemonicParsing="false" text="Ujmij Gazu" />
+                                    <Button fx:id="engineSpeedUpButton" mnemonicParsing="false" onAction="#onEngineSpeedUpPress" text="Dodaj Gazu" />
+                                    <Button fx:id="engineSpeedDownButton" mnemonicParsing="false" onAction="#onEngineSpeedDownPress" text="Ujmij Gazu" />
                                  </children>
                               </HBox>
                            </children>
@@ -164,31 +163,31 @@
                               <HBox prefWidth="200.0">
                                  <children>
                                     <Label text="Nazwa" />
-                                    <TextField />
+                                    <TextField fx:id="clutchNameText" onAction="#onClutchNameText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Cena" />
-                                    <TextField />
+                                    <TextField fx:id="clutchPriceText" onAction="#onClutchPriceText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="210.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Waga" />
-                                    <TextField />
+                                    <TextField fx:id="clutchWeightText" onAction="#onClutchWeightText" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="310.0" prefWidth="200.0">
                                  <children>
                                     <Label prefHeight="16.0" prefWidth="31.0" text="Stan" />
-                                    <TextField />
+                                    <TextField fx:id="clutchStateText" />
                                  </children>
                               </HBox>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Naciśnij" />
-                                    <Button mnemonicParsing="false" text="Zwolnij" />
+                                    <Button fx:id="clutchPressButton" mnemonicParsing="false" onAction="#onClutchPressPress" text="Naciśnij" />
+                                    <Button fx:id="clutchReleaseButton" mnemonicParsing="false" onAction="#onClutchReleasePress" text="Zwolnij" />
                                  </children>
                               </HBox>
                            </children>
@@ -206,9 +205,9 @@
             <HBox alignment="CENTER" spacing="5.0">
                <children>
                   <Label text="Samochód" />
-                  <ChoiceBox prefWidth="150.0" />
-                  <Button mnemonicParsing="false" text="Dodaj Nowy" />
-                  <Button mnemonicParsing="false" text="Usuń" />
+                  <ComboBox fx:id="carChoiceCombo" onAction="#onCarChoiceCombo" prefWidth="150.0" />
+                  <Button fx:id="carAddButton" mnemonicParsing="false" onAction="#onCarAddPress" text="Dodaj Nowy" />
+                  <Button fx:id="carDeleteButton" mnemonicParsing="false" onAction="#onCarDeletePress" text="Usuń" />
                </children>
             </HBox>
             <Pane />
