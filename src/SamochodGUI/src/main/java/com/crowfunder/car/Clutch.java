@@ -19,4 +19,11 @@ public class Clutch extends Component {
     public boolean isClutchPressed() {
         return clutchPressed;
     }
+
+    public String getClutchState() {
+        if (clutchPressed) {
+            return "Pressed";
+        }
+        return "Released";
+    }
 }

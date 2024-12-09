@@ -9,8 +9,6 @@ public class Car {
     public final Engine engine;
     private Position position;
 
-
-
     public void startCar() {
         isRunning = true;
         this.engine.engineRun();
@@ -38,6 +36,9 @@ public class Car {
     public Position getPosition() {
         return position;
     }
+
+    public String getModelName() { return modelName; }
+    public int getPlateNumber() { return plateNumber; }
 
     public Car(int plateNumber, String modelName, Gearbox gearbox, Engine engine, Position position) {
         this.plateNumber = plateNumber;
