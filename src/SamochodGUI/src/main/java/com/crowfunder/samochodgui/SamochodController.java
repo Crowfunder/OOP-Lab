@@ -1,14 +1,20 @@
 package com.crowfunder.samochodgui;
 
 import com.crowfunder.car.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SamochodController {
@@ -32,9 +38,14 @@ public class SamochodController {
     public ComboBox carChoiceCombo;
     public ImageView carImageView;
 
-    Car car = new Car(23, "aughh",  new Gearbox("grbx", 20, 100, 6, new Clutch("clutch", 10, 200)), new Engine(100, "nginx", 20, 1000), new Position(0,0));
+    private Car car;
 
     ArrayList<Car> cars = new ArrayList<Car>();
+
+    public void addCarToList(Car car) {
+        this.cars.add(car);
+        Refresh();
+    }
 
     @FXML
     public void initialize() {
@@ -45,6 +56,13 @@ public class SamochodController {
         carImageView.setFitHeight(40);
         carImageView.setTranslateX(0);
         carImageView.setTranslateY(0);
+        Engine engine = new Engine(2600, "Papanginx", 400.0F, 3000.0F);
+        Clutch clutch = new Clutch("Papaclutch", 20.0F, 900.0F);
+        Gearbox gearbox = new Gearbox("Papabox", 700.0F, 200.0F, 6, clutch);
+        Car defcar = new Car(2137, "Papamobile", gearbox, engine);
+        cars.add(defcar);
+        car = defcar;
+        Refresh();
     }
 
     public void Refresh() {
@@ -64,7 +82,7 @@ public class SamochodController {
         clutchPriceText.setText(Float.toString(this.car.gearbox.clutch.getPrice()));
         clutchWeightText.setText(Float.toString(this.car.gearbox.clutch.getWeight()));
         clutchStateText.setText(this.car.gearbox.clutch.getClutchState());
-
+        carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
     }
 
     @FXML
@@ -147,7 +165,14 @@ public class SamochodController {
         Refresh();
     }
     @FXML
-    public void onCarAddPress(ActionEvent actionEvent) {
+    public void onCarAddPress(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DodajSamochod.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.load()));
+        stage.setTitle("Dodaj nowy samochód");
+        DodajSamochodController nk = loader.getController();
+        nk.setMainController(this);
+        stage.show();
     }
     @FXML
     public void onCarDeletePress(ActionEvent actionEvent) {
@@ -155,5 +180,7 @@ public class SamochodController {
     }
     @FXML
     public void onCarChoiceCombo(ActionEvent actionEvent) {
+        car = (Car) carChoiceCombo.getValue();
+        Refresh();
     }
 }

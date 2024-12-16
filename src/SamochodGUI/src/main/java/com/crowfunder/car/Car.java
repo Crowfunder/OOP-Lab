@@ -1,6 +1,6 @@
 package com.crowfunder.car;
 
-public class Car {
+public class Car extends Thread {
     private boolean isRunning = false;
     private int plateNumber;
     private String modelName;
@@ -8,6 +8,10 @@ public class Car {
     public final Gearbox gearbox;
     public final Engine engine;
     private Position position;
+
+    public String toString() {
+        
+    }
 
     public void startCar() {
         isRunning = true;
@@ -18,6 +22,7 @@ public class Car {
         this.engine.engineStop();
     }
     public void goToPosition(float x, float y) {
+
         this.position.setPosition(x, y);
     }
 
@@ -40,12 +45,12 @@ public class Car {
     public String getModelName() { return modelName; }
     public int getPlateNumber() { return plateNumber; }
 
-    public Car(int plateNumber, String modelName, Gearbox gearbox, Engine engine, Position position) {
+    public Car(int plateNumber, String modelName, Gearbox gearbox, Engine engine) {
         this.plateNumber = plateNumber;
         this.modelName = modelName;
         this.gearbox = gearbox;
         this.engine = engine;
-        this.position = position;
+        this.position = new Position(0,0);
     }
     public Car(Gearbox gearbox, Engine engine) {
         this.gearbox = gearbox;
