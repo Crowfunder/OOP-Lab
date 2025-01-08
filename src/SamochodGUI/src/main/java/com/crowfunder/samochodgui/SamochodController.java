@@ -38,12 +38,15 @@ public class SamochodController {
     public ComboBox carChoiceCombo;
     public ImageView carImageView;
 
+    private int selectedCar;
     private Car car;
 
     ArrayList<Car> cars = new ArrayList<Car>();
 
-    public void addCarToList(Car car) {
-        this.cars.add(car);
+    public void addCarToList(Car newCar) {
+        cars.add(newCar);
+        carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
+        car = newCar;
         Refresh();
     }
 
@@ -59,30 +62,38 @@ public class SamochodController {
         Engine engine = new Engine(2600, "Papanginx", 400.0F, 3000.0F);
         Clutch clutch = new Clutch("Papaclutch", 20.0F, 900.0F);
         Gearbox gearbox = new Gearbox("Papabox", 700.0F, 200.0F, 6, clutch);
-        Car defcar = new Car(2137, "Papamobile", gearbox, engine);
-        cars.add(defcar);
-        car = defcar;
+        this.car = new Car(2137, "Papamobile", gearbox, engine);
+        this.cars.add(car);
+        this.carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
+        this.selectedCar = 0;
+        this.carChoiceCombo.getSelectionModel().select(selectedCar);
         Refresh();
     }
 
+    @FXML
     public void Refresh() {
-        carModelText.setText(this.car.getModelName());
-        carNrRejText.setText(Integer.toString(this.car.getPlateNumber()));
-        carWagaText.setText(Float.toString(this.car.getWeight()));
-        carSpeedText.setText(Double.toString(this.car.getCurrentSpeed()));
-        gearboxNameText.setText(this.car.gearbox.getName());
-        gearboxWeightText.setText(Float.toString(this.car.getWeight()));
-        gearboxPriceText.setText(Float.toString(this.car.gearbox.getPrice()));
-        gearboxCurrentGearText.setText(Float.toString(this.car.gearbox.getCurrentGear()));
-        engineNameText.setText(this.car.engine.getName());
-        enginePriceText.setText(Float.toString(this.car.engine.getPrice()));
-        engineWeightText.setText(Float.toString(this.car.engine.getWeight()));
-        engineRPMText.setText(Float.toString(this.car.engine.getRpm()));
-        clutchNameText.setText(this.car.gearbox.clutch.getName());
-        clutchPriceText.setText(Float.toString(this.car.gearbox.clutch.getPrice()));
-        clutchWeightText.setText(Float.toString(this.car.gearbox.clutch.getWeight()));
-        clutchStateText.setText(this.car.gearbox.clutch.getClutchState());
-        carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
+        carModelText.setText(car.getModelName());
+        carNrRejText.setText(Integer.toString(car.getPlateNumber()));
+        carWagaText.setText(Float.toString(car.getWeight()));
+        carSpeedText.setText(Double.toString(car.getCurrentSpeed()));
+        gearboxNameText.setText(car.gearbox.getName());
+        gearboxWeightText.setText(Float.toString(car.getWeight()));
+        gearboxPriceText.setText(Float.toString(car.gearbox.getPrice()));
+        gearboxCurrentGearText.setText(Float.toString(car.gearbox.getCurrentGear()));
+        engineNameText.setText(car.engine.getName());
+        enginePriceText.setText(Float.toString(car.engine.getPrice()));
+        engineWeightText.setText(Float.toString(car.engine.getWeight()));
+        engineRPMText.setText(Float.toString(car.engine.getRpm()));
+        clutchNameText.setText(car.gearbox.clutch.getName());
+        clutchPriceText.setText(Float.toString(car.gearbox.clutch.getPrice()));
+        clutchWeightText.setText(Float.toString(car.gearbox.clutch.getWeight()));
+        clutchStateText.setText(car.gearbox.clutch.getClutchState());
+        selectedCar = cars.indexOf(car);
+        if (car == null) {
+            selectedCar = 0;
+            car = cars.get(selectedCar);
+        }
+        carChoiceCombo.getSelectionModel().select(selectedCar);
     }
 
     @FXML
@@ -93,12 +104,12 @@ public class SamochodController {
     }
     @FXML
     public void oncarEnableClick(ActionEvent actionEvent) {
-        this.car.startCar();
+        car.startCar();
         Refresh();
     }
     @FXML
     public void oncarDisableClick(ActionEvent actionEvent) {
-        this.car.stopCar();
+        car.stopCar();
         Refresh();
     }
     @FXML
@@ -115,12 +126,12 @@ public class SamochodController {
     }
     @FXML
     public void onGearboxGearUpPress(ActionEvent actionEvent) throws GearboxException {
-        this.car.gearbox.setCurrentGear(this.car.gearbox.getCurrentGear()+1);
+        car.gearbox.setCurrentGear(car.gearbox.getCurrentGear()+1);
         Refresh();
     }
     @FXML
     public void onGearboxGearDownPress(ActionEvent actionEvent) throws GearboxException {
-        this.car.gearbox.setCurrentGear(this.car.gearbox.getCurrentGear()-1);
+        car.gearbox.setCurrentGear(car.gearbox.getCurrentGear()-1);
         Refresh();
     }
     @FXML
@@ -137,12 +148,12 @@ public class SamochodController {
     }
     @FXML
     public void onEngineSpeedUpPress(ActionEvent actionEvent) {
-        this.car.engine.increaseRPM(100);
+        car.engine.increaseRPM(100);
         Refresh();
     }
     @FXML
     public void onEngineSpeedDownPress(ActionEvent actionEvent) {
-        this.car.engine.decreaseRPM(100);
+        car.engine.decreaseRPM(100);
         Refresh();
     }
     @FXML
@@ -156,12 +167,12 @@ public class SamochodController {
     }
     @FXML
     public void onClutchPressPress(ActionEvent actionEvent) {
-        this.car.gearbox.clutch.clutchPress();
+        car.gearbox.clutch.clutchPress();
         Refresh();
     }
     @FXML
     public void onClutchReleasePress(ActionEvent actionEvent) {
-        this.car.gearbox.clutch.clutchRelease();
+        car.gearbox.clutch.clutchRelease();
         Refresh();
     }
     @FXML
@@ -181,6 +192,12 @@ public class SamochodController {
     @FXML
     public void onCarChoiceCombo(ActionEvent actionEvent) {
         car = (Car) carChoiceCombo.getValue();
+        if (car == null) {
+            selectedCar = 0;
+            car = cars.get(selectedCar);
+        } else {
+            selectedCar = cars.indexOf(car);
+        }
         Refresh();
     }
 }

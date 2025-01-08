@@ -30,7 +30,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Crowfunder/OOP-Lab.git&quot;,
-    &quot;accountId&quot;: &quot;96db27ce-eb51-4417-83d1-e8dc41551087&quot;
+    &quot;accountId&quot;: &quot;96c7762e-12db-4147-a9a2-11d211a08f41&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -54,15 +54,16 @@
     "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/crowfunder/Code/Repositories/OOP-Lab/src/SamochodGUI/src/main/java/com/crowfunder/samochodgui",
-    "last_opened_file_path": "/home/crowfunder/Code/Repositories/OOP-Lab/src/SamochodGUI/src/main/java/com/crowfunder/images",
+    "last_opened_file_path": "D:/Github Repositories/OOP-Lab/src/SamochodGUI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -79,6 +80,7 @@
   </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <output_file path="D:\Github Repositories\OOP-Lab\src\SamochodGUI\out.txt" is_save="true" />
       <option name="MAIN_CLASS_NAME" value="com.crowfunder.samochodgui.HelloApplication" />
       <module name="SamochodGUI" />
       <extension name="coverage">
@@ -127,10 +129,37 @@
       <workItem from="1734000492258" duration="20000" />
       <workItem from="1734125078125" duration="18000" />
       <workItem from="1734366170754" duration="4772000" />
+      <workItem from="1736368143155" duration="770000" />
+      <workItem from="1736369038129" duration="5299000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <condition expression="car == null" language="JAVA" />
+          <properties class="java.lang.NullPointerException" package="java.lang">
+            <catch-class-filters>
+              <class-filter pattern="SamochodController.java" />
+            </catch-class-filters>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/crowfunder/samochodgui/SamochodController.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/crowfunder/samochodgui/SamochodController.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

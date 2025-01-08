@@ -10,7 +10,7 @@ public class Car extends Thread {
     private Position position;
 
     public String toString() {
-        
+        return modelName;
     }
 
     public void startCar() {
@@ -31,7 +31,12 @@ public class Car extends Thread {
     }
 
     public double getCurrentSpeed() {
-        return gearbox.getCurrentGearRatio() * engine.getRpm();
+        double speed = gearbox.getCurrentGearRatio() * engine.getRpm();
+        if (speed < maxSpeed) {
+            return speed;
+        } else {
+            return maxSpeed;
+        }
     }
 
     public double getPrice() {
@@ -51,6 +56,7 @@ public class Car extends Thread {
         this.gearbox = gearbox;
         this.engine = engine;
         this.position = new Position(0,0);
+        this.maxSpeed = 200;
     }
     public Car(Gearbox gearbox, Engine engine) {
         this.gearbox = gearbox;
