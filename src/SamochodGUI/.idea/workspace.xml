@@ -51,7 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.HelloApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -130,7 +130,7 @@
       <workItem from="1734125078125" duration="18000" />
       <workItem from="1734366170754" duration="4772000" />
       <workItem from="1736368143155" duration="770000" />
-      <workItem from="1736369038129" duration="5299000" />
+      <workItem from="1736369038129" duration="5616000" />
     </task>
     <servers />
   </component>

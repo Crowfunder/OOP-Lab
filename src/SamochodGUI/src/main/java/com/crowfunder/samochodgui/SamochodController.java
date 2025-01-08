@@ -187,7 +187,12 @@ public class SamochodController {
     }
     @FXML
     public void onCarDeletePress(ActionEvent actionEvent) {
-
+        if (cars.size() > 1) {
+            cars.remove(car);
+            carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
+            carChoiceCombo.getSelectionModel().select(0);
+            Refresh();
+        }
     }
     @FXML
     public void onCarChoiceCombo(ActionEvent actionEvent) {
