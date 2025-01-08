@@ -97,6 +97,37 @@ public class SamochodController {
     }
 
     @FXML
+    public void onCarAddPress(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DodajSamochod.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.load()));
+        stage.setTitle("Dodaj nowy samochód");
+        DodajSamochodController nk = loader.getController();
+        nk.setMainController(this);
+        stage.show();
+    }
+    @FXML
+    public void onCarDeletePress(ActionEvent actionEvent) {
+        if (cars.size() > 1) {
+            cars.remove(car);
+            carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
+            carChoiceCombo.getSelectionModel().select(0);
+            Refresh();
+        }
+    }
+    @FXML
+    public void onCarChoiceCombo(ActionEvent actionEvent) {
+        car = (Car) carChoiceCombo.getValue();
+        if (car == null) {
+            selectedCar = 0;
+            car = cars.get(selectedCar);
+        } else {
+            selectedCar = cars.indexOf(car);
+        }
+        Refresh();
+    }
+
+    @FXML
     public void onCarModelText(ActionEvent actionEvent) {
     }
     @FXML
@@ -175,34 +206,5 @@ public class SamochodController {
         car.gearbox.clutch.clutchRelease();
         Refresh();
     }
-    @FXML
-    public void onCarAddPress(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("DodajSamochod.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(loader.load()));
-        stage.setTitle("Dodaj nowy samochód");
-        DodajSamochodController nk = loader.getController();
-        nk.setMainController(this);
-        stage.show();
-    }
-    @FXML
-    public void onCarDeletePress(ActionEvent actionEvent) {
-        if (cars.size() > 1) {
-            cars.remove(car);
-            carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
-            carChoiceCombo.getSelectionModel().select(0);
-            Refresh();
-        }
-    }
-    @FXML
-    public void onCarChoiceCombo(ActionEvent actionEvent) {
-        car = (Car) carChoiceCombo.getValue();
-        if (car == null) {
-            selectedCar = 0;
-            car = cars.get(selectedCar);
-        } else {
-            selectedCar = cars.indexOf(car);
-        }
-        Refresh();
-    }
+
 }
