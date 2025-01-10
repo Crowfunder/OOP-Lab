@@ -51,7 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.HelloApplication.executor": "Debug",
+    "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -130,7 +130,8 @@
       <workItem from="1734125078125" duration="18000" />
       <workItem from="1734366170754" duration="4772000" />
       <workItem from="1736368143155" duration="770000" />
-      <workItem from="1736369038129" duration="5616000" />
+      <workItem from="1736369038129" duration="5789000" />
+      <workItem from="1736509136123" duration="804000" />
     </task>
     <servers />
   </component>
@@ -151,12 +152,12 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/crowfunder/samochodgui/SamochodController.java</url>
-          <line>106</line>
+          <line>137</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/crowfunder/samochodgui/SamochodController.java</url>
-          <line>169</line>
+          <line>200</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>

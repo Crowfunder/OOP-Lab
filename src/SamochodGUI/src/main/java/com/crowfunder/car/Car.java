@@ -31,7 +31,7 @@ public class Car extends Thread {
     }
 
     public double getCurrentSpeed() {
-        double speed = gearbox.getCurrentGearRatio() * engine.getRpm();
+        double speed = gearbox.getCurrentGearRatio() * 1/4* engine.getRpm();
         if (speed < maxSpeed) {
             return speed;
         } else {
@@ -57,6 +57,14 @@ public class Car extends Thread {
         this.engine = engine;
         this.position = new Position(0,0);
         this.maxSpeed = 200;
+    }
+    public Car(int plateNumber, String modelName, Gearbox gearbox, Engine engine, float maxSpeed) {
+        this.plateNumber = plateNumber;
+        this.modelName = modelName;
+        this.gearbox = gearbox;
+        this.engine = engine;
+        this.position = new Position(0,0);
+        this.maxSpeed = maxSpeed;
     }
     public Car(Gearbox gearbox, Engine engine) {
         this.gearbox = gearbox;

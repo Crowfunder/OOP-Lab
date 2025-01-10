@@ -31,9 +31,11 @@ public class DodajSamochodController {
         String model = carModelText.getText();
         int registration;
         int rpm;
+        float maxSpeed;
         try {
             registration = Integer.parseInt(registrationTextField.getText());
             rpm = Integer.parseInt(rpmTextField.getText());
+            maxSpeed = Float.parseFloat(carMaxSpeedText.getText());
         } catch (NumberFormatException e) {
             System.out.println("Niepoprawne dane. Spróbuj ponownie.");
             return;
@@ -41,7 +43,7 @@ public class DodajSamochodController {
         Engine engine = new Engine(rpm, "NginX", 500.0F, 2000.0F);
         Clutch clutch = new Clutch("cltch", 100.0F, 500.0F);
         Gearbox gearbox = new Gearbox("grbx", 400.0F, 1000.0F, 6, clutch);
-        Car car = new Car(registration, model, gearbox, engine);
+        Car car = new Car(registration, model, gearbox, engine, maxSpeed);
         MainController.addCarToList(car);
         Stage stage = (Stage) createButton.getScene().getWindow();
         stage.close();

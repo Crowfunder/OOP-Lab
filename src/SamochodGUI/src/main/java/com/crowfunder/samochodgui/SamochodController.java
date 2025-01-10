@@ -62,7 +62,7 @@ public class SamochodController {
         Engine engine = new Engine(2600, "Papanginx", 400.0F, 3000.0F);
         Clutch clutch = new Clutch("Papaclutch", 20.0F, 900.0F);
         Gearbox gearbox = new Gearbox("Papabox", 700.0F, 200.0F, 6, clutch);
-        this.car = new Car(2137, "Papamobile", gearbox, engine);
+        this.car = new Car(2137, "Papamobile", gearbox, engine, 213.7f);
         this.cars.add(car);
         this.carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
         this.selectedCar = 0;
