@@ -63,7 +63,7 @@
             <HBox alignment="CENTER" layoutX="10.0" layoutY="301.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Button fx:id="createButton" mnemonicParsing="false" onAction="#onCreatePressed" text="Stwórz" />
-                  <Button fx:id="cancelButton" layoutX="141.0" layoutY="23.0" mnemonicParsing="false" onAction="#onCreatePressed" text="Anuluj" />
+                  <Button fx:id="cancelButton" layoutX="141.0" layoutY="23.0" mnemonicParsing="false" onAction="#onCancelPressed" text="Anuluj" />
                </children>
                <opaqueInsets>
                   <Insets />

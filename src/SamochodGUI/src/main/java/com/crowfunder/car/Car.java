@@ -75,6 +75,7 @@ public class Car extends Thread {
         this.engine = engine;
         this.position = new Position(0,0);
         this.maxSpeed = 200;
+        start();
     }
     public Car(int plateNumber, String modelName, Gearbox gearbox, Engine engine, float maxSpeed) {
         this.plateNumber = plateNumber;
@@ -83,9 +84,13 @@ public class Car extends Thread {
         this.engine = engine;
         this.position = new Position(0,0);
         this.maxSpeed = maxSpeed;
+        start();
+
     }
     public Car(Gearbox gearbox, Engine engine) {
         this.gearbox = gearbox;
         this.engine = engine;
+        start();
+
     }
 }

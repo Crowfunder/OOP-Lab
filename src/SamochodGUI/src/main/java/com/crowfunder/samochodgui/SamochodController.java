@@ -1,15 +1,15 @@
 package com.crowfunder.samochodgui;
 
 import com.crowfunder.car.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,6 +37,7 @@ public class SamochodController {
     public TextField clutchStateText;
     public ComboBox carChoiceCombo;
     public ImageView carImageView;
+    public VBox carmap;
 
     private int selectedCar;
     private Car car;
@@ -63,10 +64,18 @@ public class SamochodController {
         Clutch clutch = new Clutch("Papaclutch", 20.0F, 900.0F);
         Gearbox gearbox = new Gearbox("Papabox", 700.0F, 200.0F, 6, clutch);
         this.car = new Car(2137, "Papamobile", gearbox, engine, 213.7f);
+        car.start();
         this.cars.add(car);
         this.carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
         this.selectedCar = 0;
         this.carChoiceCombo.getSelectionModel().select(selectedCar);
+        carmap.setOnMouseClicked(event -> {
+            double x = event.getX();
+            double y = event.getY();
+            Position target = new Position((float) x, (float) y);
+            car.goToPosition(target);
+            Refresh();
+        });
         Refresh();
     }
 
@@ -94,6 +103,10 @@ public class SamochodController {
             car = cars.get(selectedCar);
         }
         carChoiceCombo.getSelectionModel().select(selectedCar);
+        Platform.runLater(() -> {
+            carImageView.setTranslateX(car.getPosition().getX());
+            carImageView.setTranslateY(car.getPosition().getY());
+        });
     }
 
     @FXML

@@ -53,6 +53,7 @@ public class DodajSamochodController {
         this.MainController = MainController;
     }
 
+    @FXML
     private void onCancelPressed() {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
