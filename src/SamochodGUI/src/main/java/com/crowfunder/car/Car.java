@@ -8,6 +8,7 @@ public class Car extends Thread {
     public final Gearbox gearbox;
     public final Engine engine;
     private Position position;
+    private Position target;
 
     public String toString() {
         return modelName;
@@ -21,9 +22,26 @@ public class Car extends Thread {
         isRunning = false;
         this.engine.engineStop();
     }
-    public void goToPosition(float x, float y) {
+    public void goToPosition(Position target) {
+        this.target = target;
 
-        this.position.setPosition(x, y);
+    }
+
+    public void run() {
+        double deltat = 0.1;
+        while (true) {
+            if (this.target == this.position) {
+                this.target = null;
+            }
+            if (this.target != null) {
+                double dist = Math.sqrt(Math.pow(target.x - position.x, 2) +
+                        Math.pow(target.y - position.y, 2));
+                double dx = getCurrentSpeed() * deltat * (target.x - position.x) /
+                        dist;
+                double dy = getCurrentSpeed() * deltat * (target.y - position.y) /
+                        dist;
+            }
+        }
     }
 
     public float getWeight() {
