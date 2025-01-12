@@ -16,6 +16,15 @@ public class Position {
         return false;
     }
 
+    public void setPosition(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public String toString() {
+        return "Position [x=" + x + ", y=" + y + "]";
+    }
+
     public float getX() {
         return x;
     }
@@ -28,10 +37,7 @@ public class Position {
         this.x = x;
         this.y = y;
     }
-    public void setPosition(float x, float y) {
-        this.x = x;
-        this.y = y;
-    }
+
     public Position() {
         this.x = 0;
         this.y = 0;

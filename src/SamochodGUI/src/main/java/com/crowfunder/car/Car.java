@@ -40,6 +40,8 @@ public class Car extends Thread {
                         dist;
                 double dy = getCurrentSpeed() * deltat * (target.y - position.y) /
                         dist;
+                position.x += dx;
+                position.y += dy;
             }
         }
     }
@@ -67,6 +69,10 @@ public class Car extends Thread {
 
     public String getModelName() { return modelName; }
     public int getPlateNumber() { return plateNumber; }
+
+    public Position getTarget() {
+        return target;
+    }
 
     public Car(int plateNumber, String modelName, Gearbox gearbox, Engine engine) {
         this.plateNumber = plateNumber;

@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.ComboBox;
@@ -37,7 +39,7 @@ public class SamochodController {
     public TextField clutchStateText;
     public ComboBox carChoiceCombo;
     public ImageView carImageView;
-    public VBox carmap;
+    public AnchorPane carmap;
 
     private int selectedCar;
     private Car car;
@@ -64,7 +66,6 @@ public class SamochodController {
         Clutch clutch = new Clutch("Papaclutch", 20.0F, 900.0F);
         Gearbox gearbox = new Gearbox("Papabox", 700.0F, 200.0F, 6, clutch);
         this.car = new Car(2137, "Papamobile", gearbox, engine, 213.7f);
-        car.start();
         this.cars.add(car);
         this.carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
         this.selectedCar = 0;
@@ -74,7 +75,6 @@ public class SamochodController {
             double y = event.getY();
             Position target = new Position((float) x, (float) y);
             car.goToPosition(target);
-            Refresh();
         });
         Refresh();
     }
