@@ -40,8 +40,8 @@ public class Car extends Thread {
                         dist;
                 double dy = getCurrentSpeed() * deltat * (target.y - position.y) /
                         dist;
-                position.x += dx;
-                position.y += dy;
+                position.x += (float) dx;
+                position.y += (float) dy;
             }
         }
     }
