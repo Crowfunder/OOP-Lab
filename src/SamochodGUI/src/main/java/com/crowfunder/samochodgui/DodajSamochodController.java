@@ -6,6 +6,7 @@ import com.crowfunder.car.Engine;
 import com.crowfunder.car.Gearbox;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -37,7 +38,7 @@ public class DodajSamochodController {
             rpm = Integer.parseInt(rpmTextField.getText());
             maxSpeed = Float.parseFloat(carMaxSpeedText.getText());
         } catch (NumberFormatException e) {
-            System.out.println("Niepoprawne dane. Spróbuj ponownie.");
+            errorPopup("Niepoprawne dane. Spróbuj ponownie.");
             return;
         }
         Engine engine = new Engine(rpm, "NginX", 500.0F, 2000.0F);
@@ -57,5 +58,14 @@ public class DodajSamochodController {
     private void onCancelPressed() {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void errorPopup(String error) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Błąd");
+        alert.setHeaderText(null);
+        alert.setContentText(error);
+        alert.showAndWait();
     }
 }

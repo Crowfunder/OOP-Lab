@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -126,6 +127,8 @@ public class SamochodController {
             carChoiceCombo.setItems(FXCollections.observableArrayList(cars));
             carChoiceCombo.getSelectionModel().select(0);
             Refresh();
+        } else {
+            errorPopup("Nie mozna usunąć ostatniego samochodu!");
         }
     }
     @FXML
@@ -170,8 +173,12 @@ public class SamochodController {
     }
     @FXML
     public void onGearboxGearUpPress(ActionEvent actionEvent) throws GearboxException {
-        car.gearbox.setCurrentGear(car.gearbox.getCurrentGear()+1);
-        Refresh();
+        try {
+            car.gearbox.setCurrentGear(car.gearbox.getCurrentGear() + 1);
+            Refresh();
+        } catch (GearboxException e) {
+            errorPopup("Nie można zmienić biegu bez wciśnięcia sprzęgła!");
+        }
     }
     @FXML
     public void onGearboxGearDownPress(ActionEvent actionEvent) throws GearboxException {
@@ -218,6 +225,15 @@ public class SamochodController {
     public void onClutchReleasePress(ActionEvent actionEvent) {
         car.gearbox.clutch.clutchRelease();
         Refresh();
+    }
+
+    @FXML
+    public void errorPopup(String error) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Błąd");
+        alert.setHeaderText(null);
+        alert.setContentText(error);
+        alert.showAndWait();
     }
 
 }
