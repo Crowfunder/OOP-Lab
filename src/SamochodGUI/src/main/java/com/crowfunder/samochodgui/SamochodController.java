@@ -95,7 +95,6 @@ public class SamochodController implements Listener {
         }
         carChoiceCombo.getSelectionModel().select(selectedCar);
         Platform.runLater(() -> {
-            System.out.printf("SOUP");
             carImageView.setTranslateX(car.getPosition().getX());
             carImageView.setTranslateY(car.getPosition().getY());
         });
