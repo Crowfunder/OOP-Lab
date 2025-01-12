@@ -1,5 +1,8 @@
 package com.crowfunder.car;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car extends Thread {
     private boolean isRunning = false;
     private int plateNumber;
@@ -9,6 +12,7 @@ public class Car extends Thread {
     public final Engine engine;
     private Position position;
     private Position target;
+    private List<Listener> listeners = new ArrayList<>();
 
     public String toString() {
         return modelName;
@@ -28,7 +32,7 @@ public class Car extends Thread {
     }
 
     public void run() {
-        double deltat = 0.1;
+        double deltat = 0.5;
         while (true) {
             if (this.target == this.position) {
                 this.target = null;
@@ -42,7 +46,22 @@ public class Car extends Thread {
                         dist;
                 position.x += (float) dx;
                 position.y += (float) dy;
+                notifyListeners();
             }
+        }
+    }
+
+    public void addListener(Listener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeListener(Listener listener) {
+        listeners.remove(listener);
+    }
+
+    private void notifyListeners() {
+        for (Listener listener : listeners) {
+            listener.update();
         }
     }
 
