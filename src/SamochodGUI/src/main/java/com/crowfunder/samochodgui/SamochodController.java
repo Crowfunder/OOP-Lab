@@ -100,7 +100,6 @@ public class SamochodController implements Listener {
     @FXML
     public void update() {
         Platform.runLater(() -> {
-            System.out.printf("works");
             carImageView.setTranslateX(car.getPosition().getX());
             carImageView.setTranslateY(car.getPosition().getY());
         });

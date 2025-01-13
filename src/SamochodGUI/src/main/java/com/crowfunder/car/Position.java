@@ -11,7 +11,7 @@ public class Position {
         }
         if (position instanceof Position) {
             Position p = (Position) position;
-            return p.x == this.x && p.y == this.y;
+            return Math.round(p.x) == Math.round(this.x) && Math.round(p.y) == Math.round(this.y);
         }
         return false;
     }

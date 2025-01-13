@@ -49,6 +49,11 @@ public class Car extends Thread {
                 position.y += (float) dy;
                 notifyListeners();
             }
+            try {
+                sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
