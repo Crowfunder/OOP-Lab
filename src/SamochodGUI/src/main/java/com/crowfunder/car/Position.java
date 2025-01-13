@@ -1,5 +1,7 @@
 package com.crowfunder.car;
 
+import static java.lang.Math.pow;
+
 public class Position {
     float x;
     float y;
@@ -11,7 +13,8 @@ public class Position {
         }
         if (position instanceof Position) {
             Position p = (Position) position;
-            return Math.round(p.x) == Math.round(this.x) && Math.round(p.y) == Math.round(this.y);
+            int radius = 10;
+            return pow(p.x-this.x, 2) + pow(p.y-this.y, 2) < pow(radius,2);
         }
         return false;
     }
