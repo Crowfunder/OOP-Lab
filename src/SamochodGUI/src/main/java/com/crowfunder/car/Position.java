@@ -21,6 +21,18 @@ public class Position {
         this.y = y;
     }
 
+    public void setX(float x) {
+        this.x = x;
+    }
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public void posEqualize() {
+        x = Math.round(this.x);
+        y = Math.round(this.y);
+    }
+
     public String toString() {
         return "Position [x=" + x + ", y=" + y + "]";
     }

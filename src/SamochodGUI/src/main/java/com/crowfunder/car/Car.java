@@ -37,6 +37,7 @@ public class Car extends Thread {
         while (true) {
             if (this.target == this.position) {
                 this.target = null;
+                this.position.posEqualize();
             }
             if (this.target != null) {
                 double dist = Math.sqrt(Math.pow(target.x - position.x, 2) +
@@ -47,6 +48,7 @@ public class Car extends Thread {
                         dist;
                 position.x += (float) dx;
                 position.y += (float) dy;
+                position.posEqualize();
                 notifyListeners();
             }
             try {
