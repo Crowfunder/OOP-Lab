@@ -62,7 +62,7 @@ public class SamochodController implements Listener {
         Car defaultCar = new Car(2137, "Papamobile", gearbox, engine, 213.7f);
         addCarToList(defaultCar);
         carmap.setOnMouseClicked(event -> {
-            double x = event.getX()-40;
+            double x = event.getX()-20;
             double y = event.getY()-30;
             Position target = new Position((float) x, (float) y);
             car.goToPosition(target);
