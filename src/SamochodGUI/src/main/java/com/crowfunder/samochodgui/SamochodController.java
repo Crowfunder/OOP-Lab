@@ -94,15 +94,16 @@ public class SamochodController implements Listener {
             car = cars.get(selectedCar);
         }
         carChoiceCombo.getSelectionModel().select(selectedCar);
-        Platform.runLater(() -> {
-            carImageView.setTranslateX(car.getPosition().getX());
-            carImageView.setTranslateY(car.getPosition().getY());
-        });
     }
 
     @Override
+    @FXML
     public void update() {
-        Refresh();
+        Platform.runLater(() -> {
+            System.out.printf("works");
+            carImageView.setTranslateX(car.getPosition().getX());
+            carImageView.setTranslateY(car.getPosition().getY());
+        });
     }
 
     @FXML

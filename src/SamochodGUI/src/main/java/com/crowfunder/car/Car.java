@@ -2,6 +2,7 @@ package com.crowfunder.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Car extends Thread {
     private boolean isRunning = false;
@@ -32,7 +33,7 @@ public class Car extends Thread {
     }
 
     public void run() {
-        double deltat = 0.5;
+        double deltat = 0.1;
         while (true) {
             if (this.target == this.position) {
                 this.target = null;
